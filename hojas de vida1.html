@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Equipo - Hojas de Vida</title>
+    <!-- Archivo index.html ejecutable -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .member-header {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto 15px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #666;
+        }
+
+        .member-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .member-title {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .member-content {
+            padding: 30px 25px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-icon {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .info-value {
+            color: #666;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .experience-item, .education-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-title, .education-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .experience-company, .education-institution {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .experience-period, .education-period {
+            color: #888;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-icon {
+            margin-right: 10px;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .contact-link {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Nuestro Equipo Profesional</h1>
+            <p>Conoce a los talentos que conforman nuestro grupo</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="team-grid">
+            <!-- Miembro 1 -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-photo" style="background-image: url('https://img.freepik.com/foto-gratis/mujer-joven-hermosa-sueter-rosa-calido-aspecto-natural-sonriente-retrato-aislado-cabello-largo_285396-896.jpg'); background-size: cover; background-position: center; color: transparent;">👤</div>
+                    <div class="member-name">Ana García López</div>
+                    <div class="member-title">Desarrolladora Full Stack</div>
+                </div>
+                <div class="member-content">
+                    <div class="section">
+                        <h3><span class="section-icon">👤</span>Información Personal</h3>
+                        <div class="info-grid">
+                            <span class="info-label">Edad:</span>
+                            <span class="info-value">28 años</span>
+                            <span class="info-label">Ubicación:</span>
+                            <span class="info-value">Madrid, España</span>
+                            <span class="info-label">Idiomas:</span>
+                            <span class="info-value">Español (Nativo), Inglés (B2)</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">💼</span>Experiencia Laboral</h3>
+                        <div class="experience-item">
+                            <div class="experience-title">Desarrolladora Senior</div>
+                            <div class="experience-company">TechSolutions S.L.</div>
+                            <div class="experience-period">2022 - Presente</div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-title">Desarrolladora Junior</div>
+                            <div class="experience-company">StartupCode</div>
+                            <div class="experience-period">2020 - 2022</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">🎓</span>Formación Académica</h3>
+                        <div class="education-item">
+                            <div class="education-title">Ingeniería en Sistemas</div>
+                            <div class="education-institution">Universidad Politécnica</div>
+                            <div class="education-period">2016 - 2020</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">⚡</span>Habilidades</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:ana.garcia@email.com" class="contact-link">ana.garcia@email.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+34 600 123 456</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            <a href="#" class="contact-link">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miembro 2 -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-photo" style="background-image: url('data:image/jpeg;base64,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'); background-size: cover; background-position: center; color: transparent;">👤</div>
+                    <div class="member-name">Carlos Rodríguez</div>
+                    <div class="member-title">Diseñador UX/UI</div>
+                </div>
+                <div class="member-content">
+                    <div class="section">
+                        <h3><span class="section-icon">👤</span>Información Personal</h3>
+                        <div class="info-grid">
+                            <span class="info-label">Edad:</span>
+                            <span class="info-value">26 años</span>
+                            <span class="info-label">Ubicación:</span>
+                            <span class="info-value">Barcelona, España</span>
+                            <span class="info-label">Idiomas:</span>
+                            <span class="info-value">Español (Nativo), Inglés (C1), Catalán (B2)</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">💼</span>Experiencia Laboral</h3>
+                        <div class="experience-item">
+                            <div class="experience-title">Diseñador UX Senior</div>
+                            <div class="experience-company">CreativeAgency</div>
+                            <div class="experience-period">2021 - Presente</div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-title">Diseñador Gráfico</div>
+                            <div class="experience-company">DigitalStudio</div>
+                            <div class="experience-period">2019 - 2021</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">🎓</span>Formación Académica</h3>
+                        <div class="education-item">
+                            <div class="education-title">Diseño Gráfico y Multimedia</div>
+                            <div class="education-institution">Escuela Superior de Diseño</div>
+                            <div class="education-period">2015 - 2019</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">⚡</span>Habilidades</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe Creative</span>
+                            <span class="skill-tag">Sketch</span>
+                            <span class="skill-tag">Prototyping</span>
+                            <span class="skill-tag">User Research</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:carlos.rodriguez@email.com" class="contact-link">carlos.rodriguez@email.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+34 600 789 012</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🎨</span>
+                            <a href="#" class="contact-link">Behance Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miembro 3 -->
+            <div class="member-card">
+                <div class="member-header">
+                    <div class="member-photo" style="background-image: url('https://img.freepik.com/foto-gratis/vista-frontal-hermosa-mujer-embarazada-casa_23-2148765052.jpg?semt=ais_hybrid&w=740'); background-size: cover; background-position: center; color: transparent;">👤</div>
+                    <div class="member-name">María Fernández</div>
+                    <div class="member-title">Project Manager</div>
+                </div>
+                <div class="member-content">
+                    <div class="section">
+                        <h3><span class="section-icon">👤</span>Información Personal</h3>
+                        <div class="info-grid">
+                            <span class="info-label">Edad:</span>
+                            <span class="info-value">32 años</span>
+                            <span class="info-label">Ubicación:</span>
+                            <span class="info-value">Sevilla, España</span>
+                            <span class="info-label">Idiomas:</span>
+                            <span class="info-value">Español (Nativo), Inglés (C1), Francés (B1)</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">💼</span>Experiencia Laboral</h3>
+                        <div class="experience-item">
+                            <div class="experience-title">Senior Project Manager</div>
+                            <div class="experience-company">TechCorp International</div>
+                            <div class="experience-period">2020 - Presente</div>
+                        </div>
+                        <div class="experience-item">
+                            <div class="experience-title">Coordinadora de Proyectos</div>
+                            <div class="experience-company">InnovaSoft</div>
+                            <div class="experience-period">2018 - 2020</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">🎓</span>Formación Académica</h3>
+                        <div class="education-item">
+                            <div class="education-title">MBA en Gestión de Proyectos</div>
+                            <div class="education-institution">ESADE Business School</div>
+                            <div class="education-period">2017 - 2018</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-title">Administración de Empresas</div>
+                            <div class="education-institution">Universidad de Sevilla</div>
+                            <div class="education-period">2012 - 2016</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">⚡</span>Habilidades</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Scrum</span>
+                            <span class="skill-tag">Agile</span>
+                            <span class="skill-tag">Jira</span>
+                            <span class="skill-tag">Trello</span>
+                            <span class="skill-tag">Leadership</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:maria.fernandez@email.com" class="contact-link">maria.fernandez@email.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+34 600 345 678</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            <a href="#" class="contact-link">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Miembro 4 -->
+            <div  class="member-card">
+                <div class="member-header">
+                    <div class="member-photo" style="background-image: url('https://scontent.fbog19-1.fna.fbcdn.net/v/t39.30808-6/368871800_10228984640858474_6123169916957355825_n.jpg?stp=c255.0.1538.1538a_dst-jpg_s206x206_tt6&_nc_cat=109&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeEpncdfWkP5N1-03TX10oXAP0RI0k6Ev88_REjSToS_z02JG0d4kpPA7xaE7SulwXM&_nc_ohc=SeqracaJwj4Q7kNvwFT1WW6&_nc_oc=Adl9D2LnNv362OuOAQUh3CuVNyuB2mx693AVrCt4N0VBLj_rz-RUPJZU9gydW2S3EU0&_nc_zt=23&_nc_ht=scontent.fbog19-1.fna&_nc_gid=ZGesQ9nOoMgeDp01MTcz_w&oh=00_AfJ9nGuREfq8Uy3lGGvTa_a97JA4Bg6Fxovc3BaWA2dO7g&oe=683702A4'); background-size: cover; background-position: center; color: transparent;">👤</div>
+                    <div class="member-name">Miller Sebastian Hernandez Ordoñez</div>
+                    <div class="member-title">Técnico de proyectos y soporte</div>
+                </div>
+                <div class="member-content">
+                    <div class="section">
+                        <h3><span class="section-icon">👤</span>Información Personal</h3>
+                        <div class="info-grid">
+                            <span class="info-label">Edad:</span>
+                            <span class="info-value">30 años</span>
+                            <span class="info-label">Ubicación:</span>
+                            <span class="info-value">Bogotá, Colombia</span>
+                            <span class="info-label">Idiomas:</span>
+                            <span class="info-value">Español (Nativo), Inglés</span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">💼</span>Experiencia Laboral</h3>
+                        <div class="experience-item">
+                            <div class="experience-title">Técnico de Proyectos y Soporte</div>
+                            <div class="experience-company">INFOMEDIA SERVICE S.A</div>
+                            <div class="experience-period">Presente</div>
+                            <div style="margin-top: 8px; font-size: 0.9em; color: #666;">
+                                • Apoyo, soporte e instalación de diferentes plataformas<br>
+                                • Transferencia de conocimiento a usuarios del cliente<br>
+                                • Implementación, configuración y mantenimiento preventivo de dispositivos activos<br>
+                                • Levantamiento de información en sitio sobre condiciones del medio<br>
+                                • Entrega de equipos adquiridos por el cliente<br>
+                                • Inventario de equipos y soporte de primer nivel en sitio<br>
+                                • Soporte de primer y segundo nivel para soluciones de IPTV, carteleras digitales y Totem<br>
+                                • Apoyo a Ingenieros de Proyectos y Especialistas de Ingeniería en ventanas de migración
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">🎓</span>Formación Académica</h3>
+                        <div class="education-item">
+                            <div class="education-title">Ingeniería de Sistemas</div>
+                            <div class="education-institution">Universidad Ucompensar</div>
+                            <div class="education-period">Actualmente Cursando</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-title">Tecnólogo en Mantenimiento de Equipos de Cómputo y Diseño e Implementación de Cableado Estructurado</div>
+                            <div class="education-institution">SENA</div>
+                            <div class="education-period">2015 - 2017</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="education-title">Bachillerato</div>
+                            <div class="education-institution">Colegio Gerardo Molina</div>
+                            <div class="education-period">2007 - 2012</div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3><span class="section-icon">⚡</span>Habilidades</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Soporte Técnico</span>
+                            <span class="skill-tag">IPTV</span>
+                            <span class="skill-tag">Cableado Estructurado</span>
+                            <span class="skill-tag">Mantenimiento Preventivo</span>
+                            <span class="skill-tag">Carteleras Digitales</span>
+                            <span class="skill-tag">Gestión de Proyectos</span>
+                        </div>
+                        <div style="margin-top: 15px; padding: 12px; background: #f0f8ff; border-radius: 8px; font-style: italic; color: #555;">
+                            "Soy una persona atenta, súper responsable, trabajadora, que me dejo orientar en lo que me digan, soy colaborador, soy bastante entregado a mi trabajo, con ganas de salir adelante y seguir reforzando todos mis conocimientos."
+                        </div>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <a href="mailto:msebastianhernandez@ucompensar.edu.co" class="contact-link">msebastianhernandez@ucompensar.edu.co</a>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📱</span>
+                            <span>+57 3154138348</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
